@@ -53,6 +53,6 @@ fun main() {
 Создание объектов и вызов методов
 
 🔗 Ссылки на код:
-ClassHomework.kt
+### [📁 **ClassHomework.kt** ↗](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac1/app/src/main/java/com/example/kotlinclasshomework/kotlinClass/ClassHomework.kt)
 
-Employee.kt
+### [📁 **Employee.kt** ↗](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac1/app/src/main/java/com/example/kotlinclasshomework/kotlinClass/Employee.kt)
