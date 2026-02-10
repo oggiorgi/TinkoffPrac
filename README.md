@@ -203,9 +203,13 @@ fun getPurchaseStatus(status: PurchaseStatus) {
 
 Условные ветвления в Kotlin
 
-🔗 Ссылки на код:
-📁 SealedClassHomework.kt
 
-📁 PurchaseStatus.kt
+🔗 Ссылки на код:
+
+### [📁 **SealedClassHomework.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac3/app/src/main/java/com/example/sealedclasshomework/sealed_class/SealedClassHomework.kt)
+
+### [📁 **PurchaseStatus.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac3/app/src/main/java/com/example/sealedclasshomework/sealed_class/PurchaseStatus.kt)
+
+---
 
 
