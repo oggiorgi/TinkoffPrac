@@ -55,3 +55,97 @@ fun main() {
 ### [📁 **ClassHomework.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac1/app/src/main/java/com/example/kotlinclasshomework/kotlinClass/ClassHomework.kt)
 
 ### [📁 **Employee.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac1/app/src/main/java/com/example/kotlinclasshomework/kotlinClass/Employee.kt)
+
+
+..............
+
+Prac2: Работа с data-классами и фильтрацией коллекций
+Раздел курса: 7. Специальные виды классов (Задание 7.2)
+Дата выполнения: Февраль 2026
+
+📝 Описание задания:
+
+Создать data-классы Language и Teacher
+
+Реализовать фильтрацию списка учителей по опыту работы
+
+Вывести имена учителей с опытом больше 5 лет
+
+Если таких учителей нет, вывести сообщение "Учитель с таким опытом не найден"
+
+💻 Мое решение:
+
+Data-классы:
+
+```kotlin
+// Language.kt
+data class Language(val name: String)
+
+// Teacher.kt
+data class Teacher(
+    val name: String,
+    val age: Int,
+    val progExperience: Int,
+    val languages: List<Language>
+)
+Основная логика в DataClassHomework.kt:
+
+kotlin
+fun main() {
+    val languageList = listOf(
+        Language("Kotlin"),
+        Language("Java"),
+    )
+
+    val teacherList = listOf(
+        Teacher("Николай", 37, 12, languageList),
+        Teacher("Кирилл", 12, 12, languageList),
+        Teacher("Анастасия", 7, 5, languageList),
+        Teacher("Евгений", 2, 1, languageList)
+    )
+
+    val experiencedTeacher = getExperiencedTeacher(experience = 5, teacherList = teacherList)
+
+    if (experiencedTeacher.isNotEmpty()) {
+        println(experiencedTeacher)
+    } else {
+        println("Учитель с таким опытом не найден")
+    }
+}
+
+private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): List<String> {
+    return teacherList
+        .filter { teacher -> teacher.progExperience > experience }
+        .map { it.name }
+}
+```
+
+Результат выполнения:
+
+text
+[Николай, Кирилл]
+Чему научился:
+
+Создание и использование data-классов в Kotlin
+
+Работа с коллекциями (List)
+
+Применение функций высшего порядка: filter() и map()
+
+Использование лямбда-выражений
+
+Обработка условий с проверкой пустоты коллекции
+
+Синтаксис Kotlin для доступа к свойствам объектов (it.name)
+
+🔗 Ссылки на код:
+
+📁 DataClassHomework.kt
+
+📁 Language.kt
+
+📁 Teacher.kt
+
+
+
+
