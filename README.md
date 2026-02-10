@@ -42,7 +42,8 @@ fun main() {
     dataScience.goHome()     // Вывод: Останусь пока не выполню задачу
 }
 ```
- Чему научился:
+#### Чему научился:
+
 Наследование классов в Kotlin
 
 Переопределение методов (override)
@@ -105,7 +106,7 @@ private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): 
 ```
 
 
-####Чему научился:
+####   Чему научился:
 
 Создание и использование data-классов в Kotlin
 
