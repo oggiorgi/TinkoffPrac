@@ -57,7 +57,11 @@ fun main() {
 ### [📁 **Employee.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac1/app/src/main/java/com/example/kotlinclasshomework/kotlinClass/Employee.kt)
 
 
-..............
+
+
+
+
+
 ### [Prac2: Работа с data-классами и фильтрацией коллекций](Prac2/)
 **Раздел курса:** 7. Специальные виды классов (Задание 7.2)
 **Дата выполнения:** Февраль 2026
