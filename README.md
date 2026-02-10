@@ -58,7 +58,7 @@ fun main() {
 ### [📁 **Employee.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac1/app/src/main/java/com/example/kotlinclasshomework/kotlinClass/Employee.kt)
 
 
-
+---
 
 
 
@@ -128,7 +128,7 @@ private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): 
 
 ### [📁 **Teacher.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac2/app/src/main/java/com/example/dataclasshomework/dataclass/Teacher.kt)
 
-
+---
 
 
 
