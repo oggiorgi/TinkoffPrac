@@ -128,7 +128,84 @@ private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): 
 
 ### [📁 **Teacher.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac2/app/src/main/java/com/example/dataclasshomework/dataclass/Teacher.kt)
 
+
+
+
 ---
 
+
+### [Prac3: Работа с sealed классами и when-выражениями](Prac3/)
+**Раздел курса:** 7. Специальные виды классов (Задание 7.4)  
+**Дата выполнения:** Февраль 2026
+
+#### 📝 Описание задания:
+1. Исправить ошибку компиляции в методе `getPurchaseStatus()`
+2. Изучить разницу между `open` и `sealed` классами
+3. Реализовать три разных способа решения проблемы
+4. Запустить программу и проверить вывод в терминале
+
+#### 💻 Мое решение:
+
+**Первый способ (с `open` классом и `else` branch):**
+
+```kotlin
+fun getPurchaseStatus(status: PurchaseStatus) = when (status) {
+    PurchaseStatus.InProgress -> println("доставка в процессе")
+    PurchaseStatus.Ready -> println("доставка готова")
+    is PurchaseStatus.Canceled -> {
+        println("Доставка отменена, причина: ${status.reason}")
+    }
+    else -> {}
+}
+```
+
+Второй способ (использование sealed класса):
+```kotlin
+// PurchaseStatus.kt
+sealed class PurchaseStatus {
+    object InProgress: PurchaseStatus()
+    object Ready: PurchaseStatus()
+    data class Canceled(val reason: String): PurchaseStatus()
+}
+
+// SealedClassHomework.kt
+fun getPurchaseStatus(status: PurchaseStatus) = when (status) {
+    PurchaseStatus.InProgress -> println("доставка в процессе")
+    PurchaseStatus.Ready -> println("доставка готова")
+    is PurchaseStatus.Canceled -> {
+        println("Доставка отменена, причина: ${status.reason}")
+    }
+}
+```
+
+Третий способ (без возвращаемого значения):
+
+```kotlin
+fun getPurchaseStatus(status: PurchaseStatus) {
+    when (status) {
+        PurchaseStatus.InProgress -> println("доставка в процессе")
+        PurchaseStatus.Ready -> println("доставка готова")
+        is PurchaseStatus.Canceled -> {
+            println("Доставка отменена, причина: ${status.reason}")
+        }
+    }
+}
+```
+
+Чему научился:
+Разница между open и sealed классами
+
+Исчерпывающие (exhaustive) when-выражения
+
+Три способа решения ошибки компиляции в when-выражениях
+
+Работа с object и data-классами внутри sealed иерархии
+
+Условные ветвления в Kotlin
+
+🔗 Ссылки на код:
+📁 SealedClassHomework.kt
+
+📁 PurchaseStatus.kt
 
 
