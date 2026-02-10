@@ -78,45 +78,25 @@ Prac2: Работа с data-классами и фильтрацией колл�
 Data-классы:
 
 ```kotlin
-// Language.kt
-data class Language(val name: String)
+  } else {
+        // TODO если список имен пустой, то выведи в терминал "Учитель с таким опытом не найден" отсюда
 
-// Teacher.kt
-data class Teacher(
-    val name: String,
-    val age: Int,
-    val progExperience: Int,
-    val languages: List<Language>
-)
-Основная логика в DataClassHomework.kt:
-
-kotlin
-fun main() {
-    val languageList = listOf(
-        Language("Kotlin"),
-        Language("Java"),
-    )
-
-    val teacherList = listOf(
-        Teacher("Николай", 37, 12, languageList),
-        Teacher("Кирилл", 12, 12, languageList),
-        Teacher("Анастасия", 7, 5, languageList),
-        Teacher("Евгений", 2, 1, languageList)
-    )
-
-    val experiencedTeacher = getExperiencedTeacher(experience = 5, teacherList = teacherList)
-
-    if (experiencedTeacher.isNotEmpty()) {
-        println(experiencedTeacher)
-    } else {
         println("Учитель с таким опытом не найден")
+//досюда
+
     }
 }
 
+/**
+ * Метод поиска опытного учителя из списка
+ */
 private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): List<String> {
+    // TODO сейчас метод возвращает пустой список. Напиши здесь фильтрацию поиска учителя из списка teacherList
+//от
     return teacherList
-        .filter { teacher -> teacher.progExperience > experience }
-        .map { it.name }
+        .filter { teacher ->  teacher.progExperience > experience }
+        .map {it.name}
+//до
 }
 ```
 
@@ -140,11 +120,12 @@ text
 
 🔗 Ссылки на код:
 
-📁 DataClassHomework.kt
+### [📁 **DataClassHomework.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac2/app/src/main/java/com/example/dataclasshomework/dataclass/DataClassHomework.kt)
 
-📁 Language.kt
+### [📁 **Language.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac2/app/src/main/java/com/example/dataclasshomework/dataclass/Language.kt)
 
-📁 Teacher.kt
+### [📁 **Teacher.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac2/app/src/main/java/com/example/dataclasshomework/dataclass/Teacher.kt)
+
 
 
 
