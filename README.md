@@ -332,7 +332,7 @@ class MainActivity : AppCompatActivity() {
 
 ### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/java/com/tinkoff/android_homework/presentation/main/MainActivity.kt?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=MainActivity.kt)
 
-### [📁 ** AndroidManifest.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/res/layout/statistic_card_layout.xml?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=statistic_card_layout.xml)
+### [📁 **AndroidManifest.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/res/layout/statistic_card_layout.xml?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=statistic_card_layout.xml)
 
 ### [📁 **statistic_card_layout.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/res/layout/statistic_card_layout.xml?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=statistic_card_layout.xml)
 
