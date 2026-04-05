@@ -289,10 +289,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // ✅ Добавил выведение макета activity_main на экран
+        // Добавил выведение макета activity_main на экран
         setContentView(R.layout.activity_main)
 
-        // ✅ Инициализация View-элементов
+        // Инициализация View-элементов
         operationsRecyclerView = findViewById(R.id.operations_recycler)
         totalSum = findViewById(R.id.sum)
         outcome = findViewById(R.id.outcome)
@@ -304,7 +304,7 @@ class MainActivity : AppCompatActivity() {
         subscribeToTotal()
     }
 
-    // ✅ Подписка на данные через ViewModel и lifecycleScope
+    // Подписка на данные через ViewModel и lifecycleScope
     private fun subscribeToTotal() {
         lifecycleScope.launch {
             viewModel.total.collect { totalItem ->
