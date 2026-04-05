@@ -328,6 +328,15 @@ class MainActivity : AppCompatActivity() {
 
 Работа с Hilt DI — аннотация @AndroidEntryPoint для инъекции зависимостей
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/7c7f6857-c0b0-4028-95b7-3e0185688edf" 
+       alt="Приложение Prac4" 
+       width="250" />
+  <br/>
+  <em>Рисунок 1: Главный экран приложения со статистикой</em>
+</div>
+
+
 🔗 Ссылки на код:
 
 ### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/java/com/tinkoff/android_homework/presentation/main/MainActivity.kt?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=MainActivity.kt)
