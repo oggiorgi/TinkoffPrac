@@ -346,11 +346,19 @@ class MainActivity : AppCompatActivity() {
 ### [📁 **statistic_card_layout.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/res/layout/statistic_card_layout.xml?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=statistic_card_layout.xml)
 
 ---
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/36a16c20-477f-443c-8011-80b629880089"
+       alt="RecyclerView" 
+       width="250" />
+  <br/>
+  <em>Рисунок 2: Создание RecyclerView</em>
+</div>
 
 
-Создание RecyclerView
-<img width="535" height="874" alt="RecyclerView" src="https://github.com/user-attachments/assets/36a16c20-477f-443c-8011-80b629880089" />
 
 🔗 Ссылки на код:
 
-### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/java/com/tinkoff/android_homework/presentation/main/MainActivity.kt?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=MainActivity.kt)
+### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/RecyclerView/android_kotlin_class_homework/app/src/main/java/com/example/kotlinclasshomework/MainActivity.kt)
+
+---
+
