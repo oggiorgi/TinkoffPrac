@@ -347,3 +347,10 @@ class MainActivity : AppCompatActivity() {
 
 ---
 
+
+Создание RecyclerView
+<img width="535" height="874" alt="RecyclerView" src="https://github.com/user-attachments/assets/36a16c20-477f-443c-8011-80b629880089" />
+
+🔗 Ссылки на код:
+
+### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/java/com/tinkoff/android_homework/presentation/main/MainActivity.kt?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=MainActivity.kt)
