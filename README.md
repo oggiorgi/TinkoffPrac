@@ -581,6 +581,16 @@ class MainActivity : AppCompatActivity() {
 
 Разделение данных по типам (INCOME / OUTCOME) с разными иконками
 
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1fe2b28b-5537-440d-9f69-0f03a7936825"
+       alt="RecyclerView2" 
+       width="250" />
+  <br/>
+  <em>Рисунок 3: Главный экран приложения</em>
+</div>
+
+
 🔗 Ссылки на код:
 
 📁 OperationAdapter.kt
