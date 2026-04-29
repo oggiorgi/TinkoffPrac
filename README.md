@@ -346,6 +346,8 @@ class MainActivity : AppCompatActivity() {
 ### [📁 **statistic_card_layout.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac4/app/src/main/res/layout/statistic_card_layout.xml?spm=a2ty_o01.29997173.0.0.6b645171szpdXB&file=statistic_card_layout.xml)
 
 ---
+### [RecyclerView](RecyclerView/)
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/36a16c20-477f-443c-8011-80b629880089"
        alt="RecyclerView" 
