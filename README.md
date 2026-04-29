@@ -597,3 +597,13 @@ class MainActivity : AppCompatActivity() {
 📁 MainActivity.kt
 📁 operation_recycler_item.xml
 📁 OperationItem.kt
+
+🔗 Ссылки на код:
+
+### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/java/com/tinkoff/android_homework/presentation/main/MainActivity.kt)
+
+### [📁 **operationAdapter.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/java/com/tinkoff/android_homework/presentation/adapter/operationAdapter.kt)
+
+### [📁 **operation_recycler_item.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/res/layout/operation_recycler_item.xml)
+
+### [📁 **operation_recycler_item.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/res/layout/operation_recycler_item.xml)
