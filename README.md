@@ -361,4 +361,229 @@ class MainActivity : AppCompatActivity() {
 ### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/RecyclerView/android_kotlin_class_homework/app/src/main/java/com/example/kotlinclasshomework/MainActivity.kt)
 
 ---
+## 🧾 **Практика 5: RecyclerView + Adapter + MVVM**
+**Раздел курса:** 13. UI (Задание 13.7 Задание для самопроверки)  
+**Дата выполнения:** Апрель 2026
 
+### 📌 **Задание:**
+
+Реализовать экран со списком финансовых операций (доходы и расходы) с использованием `RecyclerView`, кастомного адаптера и `StateFlow` во `ViewModel`.  
+В каждый item необходимо добавить:
+- Иконку слева (синяя — для доходов, серая — для расходов)
+- Название операции по центру
+- Сумму операции справа
+
+Данные подгружаются по сети (JSON) через `Flow` и отображаются в списке.
+
+---
+
+### 💡 **Решение:**
+
+```kotlin
+// operationAdapter.kt
+package com.tinkoff.android_homework.presentation.adapter
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.tinkoff.android_homework.R
+import com.tinkoff.android_homework.presentation.model.operations.OperationItem
+import com.tinkoff.android_homework.presentation.model.operations.OperationType
+
+class OperationAdapter : RecyclerView.Adapter<OperationAdapter.EventViewHolder>() {
+
+    var data: List<OperationItem> = emptyList()
+        set(newValue) {
+            field = newValue
+            notifyDataSetChanged()
+        }
+
+    fun submitList(newList: List<OperationItem>?) {
+        data = newList ?: emptyList()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.operation_recycler_item, parent, false)
+        return EventViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
+        holder.bind(data[position])
+    }
+
+    override fun getItemCount(): Int = data.size
+
+    class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val operationIcon: ImageView = itemView.findViewById(R.id.operation_icon)
+        private val operationName: TextView = itemView.findViewById(R.id.operation_name)
+        private val operationSum: TextView = itemView.findViewById(R.id.operation_sum)
+
+        fun bind(operation: OperationItem) {
+            operationName.text = operation.operationTitle
+
+            val sign = if (operation.operationType == OperationType.INCOME) "+" else "-"
+            operationSum.text = "$sign${operation.operationSum} ₽"
+
+            when (operation.operationType) {
+                OperationType.INCOME -> operationIcon.setImageResource(R.drawable.income_icon)
+                OperationType.OUTCOME -> operationIcon.setImageResource(R.drawable.spending_icon)
+            }
+        }
+    }
+}
+```
+```kotlin
+// MainActivity.kt
+package com.tinkoff.android_homework.presentation.main
+
+import android.os.Bundle
+import android.util.Log
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.tinkoff.android_homework.R
+import com.tinkoff.android_homework.presentation.adapter.operationAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
+    private val viewModel by viewModels<MainViewModel>()
+
+    private lateinit var operationsRecyclerView: RecyclerView
+    private lateinit var totalSum: TextView
+    private lateinit var outcome: TextView
+    private lateinit var income: TextView
+    private lateinit var progressBar: ProgressBar
+
+    private lateinit var operationAdapter: operationAdapter // Адаптер для списка операций
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        operationsRecyclerView = findViewById(R.id.operations_recycler)
+
+        totalSum = findViewById(R.id.sum)
+        outcome = findViewById(R.id.outcome)
+        income = findViewById(R.id.income)
+        progressBar = findViewById(R.id.progress_bar)
+
+        initOperationsRecycler()
+
+        subscribeToOperations()
+        subscribeToTotal()
+
+    }
+
+    private fun subscribeToTotal() {
+        lifecycleScope.launch {
+            viewModel.total.collect { totalItem ->
+                income.text = totalItem?.income.toString()
+                outcome.text = totalItem?.outcome.toString()
+                totalSum.text = totalItem?.total.toString()
+
+                Log.e("TAGRTRT", "totalItem?.progress :${totalItem?.progress}")
+                progressBar.progress = totalItem?.progress?.toInt() ?: 0
+            }
+        }
+    }
+
+    private fun subscribeToOperations() {
+        lifecycleScope.launch {
+            viewModel.operations.collect {
+                operationItems -> operationAdapter.submitList(operationItems)  // Добавляем полученные операции в адаптер
+            }
+        }
+    }
+
+    private fun initOperationsRecycler() {
+        // Создаём и устанавливаем адаптер для RecyclerView
+        operationAdapter = operationAdapter()
+        operationsRecyclerView.layoutManager = LinearLayoutManager(baseContext)
+        operationsRecyclerView.adapter = operationAdapter
+    }
+}
+```
+```xml
+<!-- operation_recycler_item.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp">
+
+    <ImageView
+        android:id="@+id/operation_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginVertical="12dp"
+        android:layout_marginStart="16dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/income_icon" />
+
+    <TextView
+        android:id="@+id/operation_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/operation_sum"
+        app:layout_constraintStart_toEndOf="@+id/operation_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Покупка продуктов" />
+
+    <TextView
+        android:id="@+id/operation_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1250 ₽" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+
+
+  Чему научился:
+Создание кастомного RecyclerView.Adapter и ViewHolder
+
+Работа с StateFlow для наблюдения за данными
+
+Использование lifecycleScope и collect для подписки на потоки
+
+Безопасная обработка null значений в UI
+
+Стилизация ячеек списка через XML-разметку
+
+Разделение данных по типам (INCOME / OUTCOME) с разными иконками
+
+🔗 Ссылки на код:
+
+📁 OperationAdapter.kt
+📁 MainActivity.kt
+📁 operation_recycler_item.xml
+📁 OperationItem.kt
