@@ -590,14 +590,6 @@ class MainActivity : AppCompatActivity() {
   <em>Рисунок 3: Главный экран приложения</em>
 </div>
 
-
-🔗 Ссылки на код:
-
-📁 OperationAdapter.kt
-📁 MainActivity.kt
-📁 operation_recycler_item.xml
-📁 OperationItem.kt
-
 🔗 Ссылки на код:
 
 ### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/java/com/tinkoff/android_homework/presentation/main/MainActivity.kt)
@@ -606,4 +598,4 @@ class MainActivity : AppCompatActivity() {
 
 ### [📁 **operation_recycler_item.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/res/layout/operation_recycler_item.xml)
 
-### [📁 **operation_recycler_item.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/res/layout/operation_recycler_item.xml)
+### [📁 **OperationItem.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/java/com/tinkoff/android_homework/presentation/model/operations/OperationItem.kt)
