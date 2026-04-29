@@ -363,7 +363,7 @@ class MainActivity : AppCompatActivity() {
 ### [📁 **MainActivity.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/RecyclerView/android_kotlin_class_homework/app/src/main/java/com/example/kotlinclasshomework/MainActivity.kt)
 
 ---
-## 🧾 **Практика 5: RecyclerView + Adapter + MVVM**
+### [Практика 5: RecyclerView + Adapter + MVVM](Prac5/)
 **Раздел курса:** 13. UI (Задание 13.7 Задание для самопроверки)  
 **Дата выполнения:** Апрель 2026
 
@@ -601,3 +601,5 @@ class MainActivity : AppCompatActivity() {
 ### [📁 **operation_recycler_item.xml**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/res/layout/operation_recycler_item.xml)
 
 ### [📁 **OperationItem.kt**](https://github.com/oggiorgi/TinkoffPrac/blob/main/Prac5/android_homework_view_viewgroup_recycler-master/app/src/main/java/com/tinkoff/android_homework/presentation/model/operations/OperationItem.kt)
+---
+
